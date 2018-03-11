@@ -1,17 +1,13 @@
-
 <?php
-//echo "<h1>Dashboard</h1>";
+
 session_start();
 if ($_SESSION['canAccess'] == false) {
     //echo "Login";
     header('Location: index.php');
     exit;
 }
-    //echo "<h1> Bienvenido Dashboard</h1>";
-
-
+  
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -37,16 +33,14 @@ if ($_SESSION['canAccess'] == false) {
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
+          <a class="nav-link" href="dashboard.php">Sign out</a>
         </li>
       </ul>
     </nav>
 
-    
-
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h2">Bienvenido a la pagina de inicio</h1>
+            <h1 class="h1">Pagina de informacion de productos</h1>
             <!--<div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -58,38 +52,52 @@ if ($_SESSION['canAccess'] == false) {
               </button>
             </div> -->
           </div>
-         </br> 
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h2 class="h2">Contenido de productos</h1>
+          
+         <div>
+          
+          <!-- formulario seleccion producto -->
+          <h2>Seleccion de informacion sobre componentes</h2>
+             <form method ="get">
+    
+            
+        <label for="tipo_componente">Eleccion de componente:</label>
+        <select name="tipo_componente">
+        <option value="intel"> Intel</option>
+        <option value="amd">AMD</option>
+        <option value="disco">Disco duro</option>
+        </select>
+        </br>
+        
+        </br>
+
+         <button type="submit">Mostrar Seleccion</button>
+
+            </form>
+        </br>
+          
+        </br>
 <!-- Para localizar imagen/información detallada del producto seleccionado en el formulario -->
-<a href="productos.php"> Seccion procesadores </a>
-</br>
-<a href="productos.php"> Seccion discos duros </a>
+<?php
+   $tipo_componente = $_GET["tipo_componente"];
+   if ($tipo_componente == "intel"){
+    echo "<img src=\"../images/procesador.jpg\" />";
+    echo "Procesador Intel I7 de 4 nucleos con una velocidad de 3 Ghz y HT";
 
-<!--<?php/*
-    $tipo_producto = $_GET["tipo_producto"];
-        
-    echo $tipo_producto;
-    $query = "SELECT * FROM producto WHERE nombre='$tipo_producto';
+   }elseif ($tipo_componente == "amd") {
 
-    $result = mysqli_query($mysqli, $query);
-    $count = mysqli_num_rows($result);
+    echo "<img src=\"../images/microamd.jpg\" />";
+    echo "Procesador AMD de 4 nucleos con una velocidad por nucleo de 2,5 Ghz";
+   }elseif ($tipo_componente == "disco") {
 
-    /*if ($count >= 1) {
-    echo "Existencias de procesadores";
-    
-    }
+    echo "<img src=\"../images/disco.jpeg\" />";
+    echo "Disco duro WD de 500 GB";
+   }       
+    //echo "<img src=\"images/disco.jpeg\" />";  
+ ?>
 
-    
-    mysqli_close($mysqli);
-      //echo "<img src=\"".$images[$tipo_moneda]["cara"]."\">";  */
-?>-->
-
-    </div>
-        
-           </main>
-   
-
+        </div>
+    </main>
+      
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

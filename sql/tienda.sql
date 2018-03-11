@@ -23,4 +23,13 @@ CREATE TABLE producto (
 );
 INSERT INTO usuario VALUES (1, 'usuario@usuario.es', 'f8032d5cae3de20fcec887f395ec9a6a', 'Usuario');
 
-INSERT INTO usuario VALUES (2, 'pedro@pedro.es', '66632d5cae3de20fcec887f395ec9a6a', 'Pedro');
+INSERT INTO usuario VALUES (2, 'pedro@pedro.es', 'c6cc8094c2dc07b700ffcc36d64e2138', 'Pedro');
+
+INSERT INTO fabricante VALUES (1, 'intel');
+INSERT INTO fabricante VALUES (2, 'amd');
+INSERT INTO fabricante VALUES (3, 'wd');
+
+INSERT INTO producto VALUES (1, 'procesador', 120, 1);
+INSERT INTO producto VALUES (2, 'disco', 50, 3);
+
+
