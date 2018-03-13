@@ -62,28 +62,10 @@ if ($_SESSION['canAccess'] == false) {
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h2 class="h2">Contenido de productos</h1>
 <!-- Para localizar imagen/información detallada del producto seleccionado en el formulario -->
-<a href="productos.php"> Seccion procesadores </a>
+<a href="productos.php"> Seccion fabricantes </a>
 </br>
-<a href="productos.php"> Seccion discos duros </a>
+<a href="productos.php"> Seccion componentes </a>
 
-<!--<?php/*
-    $tipo_producto = $_GET["tipo_producto"];
-        
-    echo $tipo_producto;
-    $query = "SELECT * FROM producto WHERE nombre='$tipo_producto';
-
-    $result = mysqli_query($mysqli, $query);
-    $count = mysqli_num_rows($result);
-
-    /*if ($count >= 1) {
-    echo "Existencias de procesadores";
-    
-    }
-
-    
-    mysqli_close($mysqli);
-      //echo "<img src=\"".$images[$tipo_moneda]["cara"]."\">";  */
-?>-->
 
     </div>
         

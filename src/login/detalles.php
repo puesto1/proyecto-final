@@ -53,38 +53,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
             </div> -->
           </div>
           
-         <div>
-          
-          <!-- formulario seleccion producto -->
-          <h2>Seleccion de informacion sobre componentes por fabricantes</h2>
-             <form method ="get">
-    
-            
-        <label for="tipo_fabricante">Eleccion de fabricante:</label>
-        <select name="tipo_fabricante">
-        <option value="asus"> Asus</option>
-        <option value="lenovo">Lenovo</option>
-        <option value="samsung">Samsung</option>
-        <option value="seagate">Seagate</option>
-        <option value="hewlett-packard">Hewlett-Packard</option>
-        <option value="xiaomi">Xiaomi</option>
-        <option value="huawei">Huawei</option>
-        <option value="crucial">Crucial</option>
-        <option value="gigabyte">Gigabyte</option>
-        </select>
-        </br>
-        
-        </br>
-
-         <button type="submit">Mostrar Seleccion</button>
-
-            </form>
-        </br>
-          
-        </br>
-      </div>
-       <!-- <a href="add.html">Add New Data</a><br/><br/> -->
-    <div>
+          <div>
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>
@@ -95,26 +64,26 @@ $result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
 		<td>Descripcion</td>
 		
 	</tr>
-<!-- Para localizar imagen/información detallada del producto seleccionado en el formulario -->
+		
+
+<!-- Para localizar imagen/información detallada del producto seleccionado en anterior pagina productos.php -->
 <?php
-   $tipo_fabricante = $_GET["tipo_fabricante"];
+   $tipo_detalle = $_GET["codigo"];
 
    // including the database connection file
 include_once("config.php");
 
 // fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
- fabricante ON(producto.codigo_fabricante=fabricante.codigo) WHERE fabricante.nombre='$tipo_fabricante'");
-   
+$result = mysqli_query($mysqli, "SELECT * FROM  producto WHERE codigo='$tipo_detalle'");
 while($res = mysqli_fetch_array($result)) {
+   
 		echo "<tr>";
 		echo "<td><img src=\"".$res['imagen']."\" width=\"50\" height=\"50\" /</td>";
 		echo "<td>".$res['codigo']."</td>";
 		echo "<td>".$res['nombre']."</td>";
 		echo "<td>".$res['precio']."</td>";
     echo "<td>".$res['descripcion']."</td>";
-    /*echo "<td><a href="detalle.php?id=<?php echo $res['codigo']?>">Detalle </a></td>"; 
-		//echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";*/
+		//echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
 	}
 
 	mysqli_close($msqli);
