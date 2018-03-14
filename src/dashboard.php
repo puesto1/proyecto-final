@@ -7,7 +7,7 @@ session_start();
     //header('Location: index.php');
     //exit;
 //}
-    echo "<h1> Bienvenido Dashboard</h1>";
+    echo "<h1> Bienvenido al Dashboard</h1>";
 
 
 ?>

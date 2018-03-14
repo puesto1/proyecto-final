@@ -88,10 +88,12 @@ $result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>
-		<td> Imagen</td>
-		<td>Codigo</td>
-		<td>Nombre</td>
+		<td>Imagen</td>
+		<td>Codigo Producto</td>
+		<td>Nombre Producto</td>
 		<td>Precio</td>
+    <td>Nombre Fabricante</td>
+    <td>Codigo Fabricante</td>
 		<td>Descripcion</td>
 		
 	</tr>
@@ -104,16 +106,21 @@ include_once("config.php");
 
 // fetching data in descending order (lastest entry first)
 $result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
- fabricante ON(producto.codigo_fabricante=fabricante.codigo) WHERE fabricante.nombre='$tipo_fabricante'");
-   
+ fabricante ON (producto.codigo_fabricante=fabricante.codigo) WHERE fabricante.nombre='$tipo_fabricante'"); 
+
 while($res = mysqli_fetch_array($result)) {
+  echo "<pre>";
+  print_r($res);  
+  echo "</pre>";
 		echo "<tr>";
 		echo "<td><img src=\"".$res['imagen']."\" width=\"50\" height=\"50\" /</td>";
-		echo "<td>".$res['codigo']."</td>";
-		echo "<td>".$res['nombre']."</td>";
-		echo "<td>".$res['precio']."</td>";
+		echo "<td>".$res[0]."</td>";
+		echo "<td>".$res[1]."</td>";
+    echo "<td>".$res['precio']."</td>";
+    echo "<td>".$res[7]."</td>";
+    echo "<td>".$res[6]."</td>";
     echo "<td>".$res['descripcion']."</td>";
-    /*echo "<td><a href="detalle.php?id=<?php echo $res['codigo']?>">Detalle </a></td>"; 
+    echo "<td><a href=\"detalles.php?codigo=".$res[0]."\">Ver detalle</a></td>"; 
 		//echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";*/
 	}
 

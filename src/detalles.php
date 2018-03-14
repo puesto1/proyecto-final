@@ -3,9 +3,13 @@
 // including the database connection file
 include_once("config.php");
 
+$codigo = $_GET['codigo'];
+echo "<h1>$codigo</h1>";
+//exit;
+
 // fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
- fabricante ON(producto.codigo_fabricante=fabricante.codigo)");
+$result = mysqli_query($mysqli, "SELECT * FROM  producto
+ WHERE codigo='$codigo'");
   
 ?>
 
@@ -21,10 +25,10 @@ $result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
     <title>Dashboard Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/dashboard.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -57,10 +61,12 @@ $result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>
-		<td> Imagen</td>
-		<td>Codigo</td>
-		<td>Nombre</td>
+  <td>Imagen</td>
+		<td>Codigo Producto</td>
+		<td>Nombre Producto</td>
 		<td>Precio</td>
+    <td>Nombre Fabricante</td>
+    <td>Codigo Fabricante</td>
 		<td>Descripcion</td>
 		
 	</tr>
@@ -70,19 +76,21 @@ $result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
 <?php
    $tipo_detalle = $_GET["codigo"];
 
-   // including the database connection file
-include_once("config.php");
+   
 
 // fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT * FROM  producto WHERE codigo='$tipo_detalle'");
+//$result = mysqli_query($mysqli, "SELECT * FROM  producto WHERE codigo='$tipo_detalle'");
+$result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
+fabricante ON (producto.codigo_fabricante=fabricante.codigo) WHERE producto.codigo='$codigo'"); 
 while($res = mysqli_fetch_array($result)) {
-   
-		echo "<tr>";
-		echo "<td><img src=\"".$res['imagen']."\" width=\"50\" height=\"50\" /</td>";
-		echo "<td>".$res['codigo']."</td>";
-		echo "<td>".$res['nombre']."</td>";
-		echo "<td>".$res['precio']."</td>";
-    echo "<td>".$res['descripcion']."</td>";
+  echo "<td><img src=\"".$res['imagen']."\" width=\"50\" height=\"50\" /</td>";
+  echo "<td>".$res[0]."</td>";
+  echo "<td>".$res[1]."</td>";
+  echo "<td>".$res['precio']."</td>";
+  echo "<td>".$res[7]."</td>";
+  echo "<td>".$res[3]."</td>";
+  echo "<td>".$res['descripcion']."</td>";
+  echo "<td><a href=\"productos.php\">Volver a pagina anterior</a></td>"; 
 		//echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
 	}
 
