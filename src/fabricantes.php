@@ -27,11 +27,11 @@ include_once("config.php");
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Informatica ASIR2</a>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="index.php">Sign out</a>
+          <a class="nav-link" href="index.php">Volver a menu inicial</a>
         </li>
       </ul>
     </nav>
@@ -86,13 +86,13 @@ include_once("config.php");
 	<table width='80%' border=0>
 
 	<tr bgcolor='#CCCCCC'>
-		<td>Imagen</td>
-		<td>Codigo Producto</td>
-		<td>Nombre Producto</td>
-		<td>Precio</td>
-    <td>Nombre Fabricante</td>
-    <td>Codigo Fabricante</td>
-		<td>Descripcion</td>
+		<td style="border:1px solid;">Imagen</td>
+		<td style="border:1px solid;">Codigo Producto</td>
+		<td style="border:1px solid;">Nombre Producto</td>
+		<td style="border:1px solid;">Precio</td>
+    <td style="border:1px solid;">Nombre Fabricante</td>
+    <td style="border:1px solid;">Codigo Fabricante</td>
+		<!--<td style="border:1px solid;">Descripcion</td>-->
 		
 	</tr>
 <!-- Para localizar imagen/información detallada del producto seleccionado en el formulario -->
@@ -117,7 +117,7 @@ while($res = mysqli_fetch_array($result)) {
     echo "<td>".$res['precio']."</td>";
     echo "<td>".$res[7]."</td>";
     echo "<td>".$res[6]."</td>";
-    echo "<td>".$res['descripcion']."</td>";
+    //echo "<td>".$res['descripcion']."</td>";
     echo "<td><a href=\"detalles.php?codigo=".$res[0]."\">Ver detalle</a></td>"; 
 		//echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";*/
 	}

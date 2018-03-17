@@ -1,68 +1,45 @@
 
 
 <?php
+//echo "<h1>Dashboard</h1>";
 session_start();
-
-include('config.php');
-
-//$email = $_POST['email'];
-//$password = md5($_POST['password']);
-
-//$email = "usuario@usuario.es";
-//$password = md5("usuario");
-//$query = "SELECT * FROM usuario WHERE email='$email' AND password='$password'";
-
-//$result = mysqli_query($mysqli, $query);
-//$count = mysqli_num_rows($result);
-
-//if ($count >= 1) {
-    //$_SESSION['canAccess'] = true;
+//if ($_SESSION['canAccess'] == false) {
     //echo "Login";
-    header('Location: dashboard.php');
+    //header('Location: index.php');
     //exit;
-//}else {
-    //$_SESSION['canAccess'] = false;
-    //echo "Error";
-
 //}
-/*while($res = mysqli_fetch_array($result)) {
- echo "<h2>Id:".$res['id']."</h2>";
- echo "<h2>Email:".$res['email']."</h2>";
- echo "<h2>Password:".$res['password']."</h2>";
- echo "<h2>Nombre:".$res['nombre']."</h2>";
+include('config.php');
+    echo "<h1> Bienvenido a informatica ASIR2</h1>";
 
-
-}*/
-
-mysqli_close($mysqli);
-
+    //mysqli_close($mysqli);
 ?>
+
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<!-- <link rel="icon" href="../../../../favicon.ico"> -->
 
-    <title>Dashboard Template for Bootstrap</title>
+<title>Dashboard Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
-  </head>
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
+</head>
 
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Informatica ASIR2</a>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="#">Sign out</a>
+          <!--<a class="nav-link" href="#">Sign out</a> -->
         </li>
       </ul>
     </nav>
@@ -85,15 +62,22 @@ mysqli_close($mysqli);
           </div>
          </br> 
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h2 class="h2">Contenido de productos</h1>
-<!-- Para localizar imagen/información detallada del producto seleccionado en el formulario -->
-<a href="productos.php"> Seccion fabricantes </a>
-</br>
-<a href="productos.php"> Seccion componentes </a>
+            
+      <h2 class="h2">Seleccion de fabricantes/productos</h1>
+<!-- Para localizar imagen/información detallada del producto seleccionado en el formulario-->
+</div>
+ </br>
+ <div>
 
+ <table width='80%' border=0>
 
-    </div>
-        
+<tr bgcolor='#CCCCCC'>
+  <td style="border:1px solid;"><a href="fabricantes.php"> Seccion fabricantes </a></td>
+  <td style="border:1px solid;"><a href="productos.php"> Seccion productos</a></td>
+    
+</tr>
+  
+ </div>
            </main>
    
 
