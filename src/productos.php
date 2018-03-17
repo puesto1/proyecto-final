@@ -4,8 +4,8 @@
 include_once("config.php");
 
 // fetching data in descending order (lastest entry first)
-
-  $result = mysqli_query($mysqli, "SELECT * FROM  producto"); 
+$result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
+ fabricante ON(producto.codigo_fabricante=fabricante.codigo)");
   
 ?>
 
@@ -33,7 +33,7 @@ include_once("config.php");
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="index.php">Sign out</a>
+          <a class="nav-link" href="dashboard.php">Sign out</a>
         </li>
       </ul>
     </nav>
@@ -53,9 +53,36 @@ include_once("config.php");
             </div> -->
           </div>
           
-         
-          <!-- formulario seleccion producto -->
+         <div>
           
+          <!-- formulario seleccion producto -->
+          <h2>Seleccion de informacion sobre componentes por fabricantes</h2>
+             <form method ="get">
+    
+            
+        <label for="tipo_fabricante">Eleccion de fabricante:</label>
+        <select name="tipo_fabricante">
+        <option value="asus"> Asus</option>
+        <option value="lenovo">Lenovo</option>
+        <option value="samsung">Samsung</option>
+        <option value="seagate">Seagate</option>
+        <option value="hewlett-packard">Hewlett-Packard</option>
+        <option value="xiaomi">Xiaomi</option>
+        <option value="huawei">Huawei</option>
+        <option value="crucial">Crucial</option>
+        <option value="gigabyte">Gigabyte</option>
+        </select>
+        </br>
+        
+        </br>
+
+         <button type="submit">Mostrar Seleccion</button>
+
+            </form>
+        </br>
+          
+        </br>
+      </div>
        <!-- <a href="add.html">Add New Data</a><br/><br/> -->
     <div>
 	<table width='80%' border=0>
@@ -65,6 +92,7 @@ include_once("config.php");
 		<td>Codigo Producto</td>
 		<td>Nombre Producto</td>
 		<td>Precio</td>
+    <td>Nombre Fabricante</td>
     <td>Codigo Fabricante</td>
 		<td>Descripcion</td>
 		
@@ -77,20 +105,22 @@ include_once("config.php");
 include_once("config.php");
 
 // fetching data in descending order (lastest entry first)
-$result = mysqli_query($mysqli, "SELECT * FROM  producto"); 
+$result = mysqli_query($mysqli, "SELECT * FROM  producto JOIN
+ fabricante ON (producto.codigo_fabricante=fabricante.codigo) WHERE fabricante.nombre='$tipo_fabricante'"); 
 
 while($res = mysqli_fetch_array($result)) {
-  //echo "<pre>";
- // print_r($res);  
-  //echo "</pre>";
+  echo "<pre>";
+  print_r($res);  
+  echo "</pre>";
 		echo "<tr>";
 		echo "<td><img src=\"".$res['imagen']."\" width=\"50\" height=\"50\" /</td>";
-		echo "<td>".$res['codigo']."</td>";
-		echo "<td>".$res['nombre']."</td>";
+		echo "<td>".$res[0]."</td>";
+		echo "<td>".$res[1]."</td>";
     echo "<td>".$res['precio']."</td>";
-    echo "<td>".$res['codigo_fabricante']."</td>";
+    echo "<td>".$res[7]."</td>";
+    echo "<td>".$res[6]."</td>";
     echo "<td>".$res['descripcion']."</td>";
-    echo "<td><a href=\"detalles.php?codigo=".$res['codigo']."\">Ver detalle</a></td>"; 
+    echo "<td><a href=\"detalles.php?codigo=".$res[0]."\">Ver detalle</a></td>"; 
 		//echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";*/
 	}
 

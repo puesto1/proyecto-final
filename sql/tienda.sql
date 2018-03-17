@@ -48,5 +48,3 @@ INSERT INTO producto VALUES(8,'Portatil Yoga 520',559, 2, 'images/pc1.jpeg', 'Po
 INSERT INTO producto VALUES(9,'Portatil Ideapd 320',444, 2, 'images/pc2.jpeg', 'Portatil Ideapd 320');
 INSERT INTO producto VALUES(10,'Impresora HP Deskjet 3720',59, 3, 'images/hp1.jpeg', 'Impresora HP Deskjet 3720');
 INSERT INTO producto VALUES(11,'Impresora HP Laserjet Pro M26nw',180, 3, 'images/hp2.jpeg', 'Impresora HP Laserjet Pro M26nw');
-INSERT INTO producto VALUES(12,'Huawei MateBook D Intel Core i5-7200U/8GB/256GB SSD/15.6',870, 8, 'images/pc3.jpg', 'Huawei MateBook D Intel Core i5-7200U/8GB/256GB SSD/15.6"');
-INSERT INTO producto VALUES(13,'Xiaomi Mi Wireless Raton Inalambrico Negro',12, 9, 'images/raton.jpg', 'Xiaomi Mi Wireless Ratpn Inalambrico Negro');
