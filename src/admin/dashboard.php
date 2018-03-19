@@ -62,9 +62,9 @@ session_start();
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h2 class="h2">Contenido de productos</h1>
 <!-- Para localizar imagen/información detallada del producto seleccionado en el formulario -->
-<a href="productos.php"> Seccion fabricantes </a>
+<a href="../fabricantes.php"> Seccion fabricantes </a>
 </br>
-<a href="productos.php"> Seccion componentes </a>
+<a href="../productos.php"> Seccion componentes </a>
 
 
     </div>
